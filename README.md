@@ -3,6 +3,9 @@
 Pure JS react native slider component with one or two markers.
 Options to customize track, touch area and provide customer markers and callbacks for touch events and value changes.
 
+NOTE: This is based on a fork from https://github.com/ptomasroos/react-native-multi-slider.  Only reason for breaking this out (although PR raised on source)
+is that this repo seems to not have progessed and we require changes.  Author still denoted on library and we only added small changes.
+
 ## Examples
 
 ```
