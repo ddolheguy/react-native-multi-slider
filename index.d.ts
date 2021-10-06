@@ -52,6 +52,8 @@ export interface MultiSliderProps {
     max?: number;
     step?: number;
 
+    stepHitSlop?: number;
+
     optionsArray?: number[];
 
     containerStyle?: ViewStyle;
@@ -61,6 +63,7 @@ export interface MultiSliderProps {
     markerContainerStyle?: ViewStyle;
     markerStyle?: ViewStyle;
     tappableStepStyle?: ViewStyle;
+    tappableContainerStepStyle?: ViewStyle;
     activeTappableStepStyle?: ViewStyle;
     pressedMarkerStyle?: ViewStyle;
     valuePrefix?: string;

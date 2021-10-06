@@ -14,6 +14,7 @@ import {
 import DefaultMarker from './DefaultMarker';
 import DefaultLabel from './DefaultLabel';
 import { createArray, valueToPosition, positionToValue } from './converters';
+import { number } from 'yup';
 
 export default class MultiSlider extends React.Component {
   static defaultProps = {
@@ -25,6 +26,7 @@ export default class MultiSlider extends React.Component {
     step: 1,
     min: 0,
     max: 10,
+    stepHitSlop: 15,
     touchDimensions: {
       height: 50,
       width: 50,
@@ -48,6 +50,7 @@ export default class MultiSlider extends React.Component {
     minMarkerOverlapDistance: 0,
     enableTapSteps: false,
     tappableStepStyle: undefined,
+    tappableContainerStepStyle: undefined,
     activeTappableStepStyle: undefined,
   };
 
@@ -465,6 +468,7 @@ export default class MultiSlider extends React.Component {
     }
 
     const tappableStepStyle = this.props.tappableStepStyle || styles.tappableStepStyle;
+    const tappableContainerStepStyle = this.props.tappableContainerStepStyle;
     const activeTappableStepStyle = this.props.activeTappableStepStyle || styles.activeTappableStepStyle;
     const totalSteps = new Array(this.props.max + 1).fill({});
     const body = (
@@ -472,7 +476,7 @@ export default class MultiSlider extends React.Component {
         {this.props.enableTapSteps ? (
           <View style={[styles.tappableStepContainer, { width: sliderLength }]}>
             {totalSteps.map((_, idx) => (
-              <Pressable key={`step_${idx}`} hitSlop={15} onPress={() => this.onStepPressed(idx)}>
+              <Pressable key={`step_${idx}`} style={tappableContainerStepStyle} hitSlop={this.props.stepHitSlop} onPress={() => this.onStepPressed(idx)}>
                 <View style={[tappableStepStyle, valueOne > idx ? activeTappableStepStyle : {}]} />
               </Pressable>
             ))}
