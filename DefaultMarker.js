@@ -36,13 +36,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#DDDDDD',
         backgroundColor: '#FFFFFF',
-        shadowColor: '#000000',
-        shadowOffset: {
-          width: 0,
-          height: 3,
-        },
-        shadowRadius: 1,
-        shadowOpacity: 0.2,
       },
       android: {
         height: 12,
